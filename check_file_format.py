@@ -11,3 +11,5 @@ format = file_format(path_to_file)
 format_lowercase = format.lower()
 if format_lowercase != ".jpg" and format_lowercase != ".png" and format_lowercase != ".tif":
     print("Unsupported file format!")
+
+print(format)
