@@ -17,4 +17,5 @@ if param == 'ff' or param == 'w' or param == 'h' or param == 'bc' or param == 'b
 else:
     print('Invalid input. Please try again and enter a valid abbreviation.')
 
-
+#to do 1: put the other functions in here
+#to do 2: split funtion integer testing not yet working
