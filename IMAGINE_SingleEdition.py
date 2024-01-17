@@ -4,7 +4,7 @@ from PIL import Image
 import os
 from check_file_format import FileFormat
 
-print("Welcome to IMAGINE - the singlee, your frienly package to display all the information you ever wanted to know about your favourite image!")
+print("Welcome to IMAGINE - the single edition , your frienly package to display all the information you ever wanted to know about your favourite image!")
 image_name = input("Please type in what image you want to know everything about. ")
 
 current_directory = os.getcwd()

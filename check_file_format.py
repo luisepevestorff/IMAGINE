@@ -2,13 +2,20 @@
 
 import os
 
-path_to_file = "/Users/luise/Pictures/Logos/Logo2.png" #going to be based on input
+class FileFormat:
+    """Check for file format
 
-def file_format(path):
-    name, format  = os.path.splitext(path)
-    return (format)
+    Args:
+        path: 
+    
+    """
+    #def __init__(self, path):
+        #self.path = path
 
-format = file_format(path_to_file) #to do: merge with line below
-format_lowercase = format.lower()
-if format_lowercase != ".jpg" and format_lowercase != ".png" and format_lowercase != ".tif":
-    print("Unsupported file format!") #to do: add more formats?
+    def file_format(path):
+        name, file_extension  = os.path.splitext(path)
+        format_lower = file_extension.lower()
+        return(format_lower)
+      
+#if format_lowercase != ".jpg" and format_lowercase != ".png" and format_lowercase != ".tif":
+#print("Unsupported file format!")
