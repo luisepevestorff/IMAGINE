@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import imageio.v2 as imageio
 import re
 from PIL import Image
@@ -9,7 +11,7 @@ image_name = input("Please type in what image you want to know everything about.
 
 current_directory = os.getcwd()
 path = current_directory+ "/" + image_name
-format = FileFormat.file_format(path)
+format = FileFormat(path).file_format()
 
 if format != ".jpg" and format != ".tif":
     raise ValueError("Hello World, this file format is not yet supported (we're working on that). Please choose a JPG or TIF file.")
