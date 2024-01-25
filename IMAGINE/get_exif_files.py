@@ -1,40 +1,110 @@
-import imageio.v2 as imageio
 import re
-from PIL import Image, ExifTags
-from check_file_format import FileFormat
+from PIL import Image
 
 class JpgTif:
-    """A class to read the Exif data from a JPG file.
-
-    Args:
-    
+    """A class to read the Exif data from a JPG or TIF file.
     """
 
-    #def __init__(self, path, w, h, attribute):
-     #   self.path = path
-      #  self.w = w
-      #  self.h = h
-       # self.attribute = attribute
-
-    image = imageio.imread(path)
-    attributes = Image.open(path)
-
-    #width = attributes.width
-    def width(attribute):
-        image_width = attribute.width
-        return image_width
+    def __init__(self, attribute, image):
+        self.attribute = attribute
+        self.image = image
     
-    #height = attributes.height
-    def height(attribute):
-        image_heigth = attribute.height
-        return image_height
+    def width(self):
+        """Width of the image.
+        Returns the width of the image.
 
-    megapixels = round((width*height/1000000))
-    depth = re.sub(r'[a-z]', '', str(image.dtype))
-    channels = len(Image.Image.getbands(attributes))
+        Args:
+            attribute (): 
 
-    def aspectRatio(w, h):
-        ratio = w/h
+        Returns:
+            integer: The width of the image.
+        """
+        image_width = self.attribute.size[0]
+        return int(image_width)
+    
+    def height(self):
+       """Height of the image.
+        Returns the height of the image.
+
+        Args:
+            attribute (): 
+
+        Returns:
+            integer: The height of the image.
+        """ 
+       image_heigth = self.attribute.size[1]
+       return int(image_heigth)
+    
+    def megapixels(self):
+        """Megapixel calculation
+        Returns the number of megapixels within the image.
+
+        Args:
+            w (integer): width of the image
+            h (integer): height of the image
+
+        Returns:
+            integer: The number of megapixels within the image.
+        """
+        w = self.width()
+        h = self.height()
+        megpix = round((w * h)/1000000)
+        return megpix
+
+    def depth(self):
+        """Bit-Depth per channel.
+        Calculates the bit-depth per channel.
+
+        Args:
+
+        Returns:
+            integer: The bit-depth per channel.
+        """
+        d = re.sub(r'[a-z]', '', str(self.image.dtype)) 
+        return int(d)
+    
+    def channels(self):
+        """ Number of channels.
+        Calculates the number of channels.
+
+        Args:
+
+        Returns:
+            integer: The number of channels.
+        """
+        chan = len(Image.Image.getbands(self.attribute))
+        return int(chan)
+    
+    def depth_per_pixel(self):
+        """Depth per pixel.
+        Calculates the depth per pixel.
+
+        Args:
+            depth (integer): the depth per channel
+            channels: the number of channels
+
+        Returns:
+            integer: The depth per pixel.
+        """
+        dep = self.depth()
+        chan = self.channels()
+        depth_per_pix = dep*chan
+        return(int(depth_per_pix))
+
+    def aspectRatio(self):
+        """Aspect ratio calculation
+        Calculate the aspect ratio of the image.
+
+        Args:
+            w (integer): the width of the image.
+            h (integer): the height of the image.
+        
+        Returns:
+            two integers: the aspect ratio of the image, width to height.
+        """
+        w = self.width()
+        h = self.height()
+        ratio = w / h
         if ratio.is_integer():
             resultA = w/100
             resultB = h/100
@@ -47,7 +117,19 @@ class JpgTif:
                     break
         return resultB, resultA
 
-    def aspectRatioRounded(w, h):
+    def aspectRatioRounded(self):
+        """Aspect ratio calculation rounded
+        Calculate the aspect ratio of the image rounded to the nearest integer.
+
+        Args:
+            w (integer): the width of the image.
+            h (integer): the height of the image.
+        
+        Returns:
+         two integers: the rounded aspect ratio of the image, width to height.
+        """
+        w = self.width()
+        h = self.height()
         ratio = w/h
         if ratio.is_integer():
             resultA = w/100
@@ -60,15 +142,15 @@ class JpgTif:
                     resultB = int(r)
                     break
         return resultB, resultA
+    
+    def colour_mode(self):
+        """Colour mode of the image.
+        Returns the colour mode of the image.
 
-    print("You chose " + image_name + "! Here is all I know about your chosen file:" )
-    print('Format: ', format)
-    print('Width: ', width)
-    print('Height: ', height)
-    print('Bit Depth per Channel: ', depth)
-    print('Bit Depth per Pixel: ', int(depth)*int(channels))
-    print('Number of Channels: ', channels)
-    print('Aspect Ratio: ', aspectRatio(width, height))
-    print('Aspect Ratio rounded: ', aspectRatioRounded(width, height) )
-    print('Megapixels: ', megapixels)
-    print('Mode: ', attributes.mode)
+        Args:
+
+        Returns:
+            string: The colour mode.
+        """
+        mode = self.attribute.mode
+        return(str(mode))
