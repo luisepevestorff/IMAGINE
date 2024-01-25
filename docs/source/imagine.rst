@@ -1,9 +1,9 @@
+.. _imagine:
+
 Functions within the IMAGINE Singe Edition
 ==========================================
 
-Two functios to calculate the aspect ratio of the image in question.
+Currently no functions present. Will be updated as soon as functions are added.
 
 .. automodule:: IMAGINE_SingleEdition
   :members:
-
-
