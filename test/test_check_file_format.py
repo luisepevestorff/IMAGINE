@@ -14,6 +14,5 @@ def test_file_format():
 
 def test_file_format_error():
     with pytest.raises(ValueError) as wrongformat:
-        testformat_3 = FileFormat('./testfile_png.png')
-        extension_3 = testformat_3.file_format()
+        FileFormat('./testfile_png.png').file_format()
     assert str(wrongformat.value) == "Hello World, this file format is not yet supported (we're working on that). Please choose a JPG or TIF file."
