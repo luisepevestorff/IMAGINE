@@ -18,6 +18,8 @@ jobs:
         python-version: '3.12'
     - name: Install dependencies
       uses: py-actions/py-dependency-install@v3
+    -name: Test with pytest
+      run: pytest
     - name: Generate Report
       run: |
         pip install pytest coverage
