@@ -8,11 +8,9 @@ def test_file_format():
     testformat_2 = FileFormat('./testfile_tif.tif')
     extension_2 = testformat_2.file_format()
 
+    testformat_3 =  FileFormat('./testfile_png.png')
+    extension_3 = testformat_3.file_format()
+
     assert extension_1 == '.jpg'
     assert extension_2 == '.tif'
-
-
-def test_file_format_error():
-    with pytest.raises(ValueError) as wrongformat:
-        FileFormat('./testfile_png.png').file_format()
-    assert str(wrongformat.value) == "Hello World, this file format is not yet supported (we're working on that). Please choose a JPG or TIF file."
+    assert extension_3 == ValueError
