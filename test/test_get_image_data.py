@@ -9,16 +9,15 @@ testpath_2 = './test/test_cat.jpg'
 def test_width():
     image_test = imageio.imread(testpath_1)
     attributes_test = Image.open(testpath_1)
-    testwidth = JpgTif(attributes_test, image_test)
-    width = testwidth.width()
-    assert width == 20
-
-def test_width():
     image_test_2 = imageio.imread(testpath_2)
     attributes_test_2 = Image.open(testpath_2)
-    testwidth = JpgTif(attributes_test_2, image_test_2)
-    width = testwidth.width()
-    assert width == 3264
+    testwidth_1 = JpgTif(attributes_test, image_test)
+    testwidth_2 = JpgTif(attributes_test_2, image_test_2)
+    width_1 = testwidth_1.width()
+    width_2 = testwidth_2.width()
+
+    assert width_1 == 20
+    assert width_2 == 3264
 
 def test_height():
     image_test = imageio.imread(testpath_1)
