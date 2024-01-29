@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
     data = JpgTif(attributes, image)
 
-    print("You chose " + image_name + "! Here is all I know about your chosen file:" )
+    print("Hello! You chose " + image_name + "! Here is all I know about your chosen file:" )
     print('Format: ', format)
     print('Width: ', data.width())
     print('Height: ', data.height())
