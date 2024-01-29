@@ -106,8 +106,8 @@ class JpgTif:
         h = self.height()
         ratio = w / h
         if ratio.is_integer():
-            resultA = w/100
-            resultB = h/100
+            resultA = 1
+            resultB = 1
         else:
             for i in range(1,100):
                 r = i*ratio
@@ -132,8 +132,8 @@ class JpgTif:
         h = self.height()
         ratio = w/h
         if ratio.is_integer():
-            resultA = w/100
-            resultB = h/100
+            resultA = 1
+            resultB = 1
         else:
             for i in range(1,100):
                 r = round(i*ratio)
