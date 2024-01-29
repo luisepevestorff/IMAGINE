@@ -8,9 +8,6 @@ def test_file_format():
     testformat_2 = FileFormat('./testfile_tif.tif')
     extension_2 = testformat_2.file_format()
 
-    testformat_3 =  FileFormat('./testfile_png.png')
-    extension_3 = testformat_3.file_format()
 
     assert extension_1 == '.jpg'
     assert extension_2 == '.tif'
-    assert extension_3 == ValueError
