@@ -4,14 +4,15 @@ import imageio.v2 as imageio
 from PIL import Image
 
 testpath_1 = './test/testfile_jpg.jpg'
+image_test_1 = imageio.imread(testpath_1)
+attributes_test_1 = Image.open(testpath_1)
+
 testpath_2 = './test/test_cat.jpg'
+image_test_2 = imageio.imread(testpath_2)
+attributes_test_2 = Image.open(testpath_2)
 
 def test_width():
-    image_test = imageio.imread(testpath_1)
-    attributes_test = Image.open(testpath_1)
-    image_test_2 = imageio.imread(testpath_2)
-    attributes_test_2 = Image.open(testpath_2)
-    testwidth_1 = JpgTif(attributes_test, image_test)
+    testwidth_1 = JpgTif(attributes_test_1, image_test_1)
     testwidth_2 = JpgTif(attributes_test_2, image_test_2)
     width_1 = testwidth_1.width()
     width_2 = testwidth_2.width()
@@ -20,113 +21,61 @@ def test_width():
     assert width_2 == 3264
 
 def test_height():
-    image_test = imageio.imread(testpath_1)
-    attributes_test = Image.open(testpath_1)
-    testheight = JpgTif(attributes_test, image_test)
-    height = testheight.height()
-    assert height == 20
-
-def test_height():
-    image_test = imageio.imread(testpath_2)
-    attributes_test = Image.open(testpath_2)
-    testheight = JpgTif(attributes_test, image_test)
-    height = testheight.height()
-    assert height == 1832
+    testheight_1 = JpgTif(attributes_test_1, image_test_1)
+    height_1 = testheight_1.height()
+    testheight_2 = JpgTif(attributes_test_2, image_test_2)
+    height_2 = testheight_2.height() 
+    
+    assert height_1 == 20
+    assert height_2 == 1832
 
 def test_megapixels():
-    image_test = imageio.imread(testpath_1)
-    attributes_test = Image.open(testpath_1)
-    testpixel = JpgTif(attributes_test, image_test)
-    megapix = testpixel.megapixels()
-    assert megapix == 0
+    testpixel_1 = JpgTif(attributes_test_1, image_test_1)
+    testpixel_2 = JpgTif(attributes_test_2, image_test_2)
+    megapix_1 = testpixel_1.megapixels()
+    megapix_2 = testpixel_2.megapixels()
 
-def test_megapixels():
-    image_test = imageio.imread(testpath_2)
-    attributes_test = Image.open(testpath_2)
-    testpixel = JpgTif(attributes_test, image_test)
-    megapix = testpixel.megapixels()
-    assert megapix == 6
+    assert megapix_1 == 0
+    assert megapix_2 == 6 
 
 def test_aspectRatio():
-    image_test = imageio.imread(testpath_1)
-    attributes_test = Image.open(testpath_1)
-    testRatio = JpgTif(attributes_test, image_test)
-    ratio = testRatio.aspectRatio()
-    assert ratio == (1, 1)
+    testRatio_1 = JpgTif(attributes_test_1, image_test_1)
+    testRatio_2 = JpgTif(attributes_test_2, image_test_2)
+    ratio_1 = testRatio_1.aspectRatio()
+    ratio_2 = testRatio_2.aspectRatio()
 
-def test_aspectRatio():
-    image_test = imageio.imread(testpath_2)
-    attributes_test = Image.open(testpath_2)
-    testRatio = JpgTif(attributes_test, image_test)
-    ratio = testRatio.aspectRatio()
-    assert ratio == (408, 229)
+    assert ratio_1 == (1, 1)
+    assert ratio_2 == (408, 229)
 
 def test_aspectRatioRounded():
-    image_test = imageio.imread(testpath_1)
-    attributes_test = Image.open(testpath_1)
-    testRatioRounded = JpgTif(attributes_test, image_test)
-    ratioRounded = testRatioRounded.aspectRatioRounded()
-    assert ratioRounded == (1, 1)
-
-def test_aspectRatioRounded():
-    image_test = imageio.imread(testpath_2)
-    attributes_test = Image.open(testpath_2)
-    testRatioRounded = JpgTif(attributes_test, image_test)
-    ratioRounded = testRatioRounded.aspectRatioRounded()
-    assert ratioRounded == (2, 1)
+    testRatioRounded_1 = JpgTif(attributes_test_1, image_test_1)
+    testRatioRounded_2 = JpgTif(attributes_test_2, image_test_2)
+    ratioRounded_1 = testRatioRounded_1.aspectRatioRounded()
+    ratioRounded_2 = testRatioRounded_2.aspectRatioRounded()
+    
+    assert ratioRounded_1 == (1, 1)
+    assert ratioRounded_2 == (2, 1)
 
 def test_depth():
-    image_test = imageio.imread(testpath_1)
-    attributes_test = Image.open(testpath_1)
-    testDepth = JpgTif(attributes_test, image_test)
-    depth = testDepth.depth()
-    assert depth == 8
+    testDepth_1 = JpgTif(attributes_test_1, image_test_1)
+    depth_1 = testDepth_1.depth()
 
-def test_depth():
-    image_test = imageio.imread(testpath_2)
-    attributes_test = Image.open(testpath_2)
-    testDepth = JpgTif(attributes_test, image_test)
-    depth = testDepth.depth()
-    assert depth == 8
+    assert depth_1 == 8
 
 def test_channels():
-    image_test = imageio.imread(testpath_1)
-    attributes_test = Image.open(testpath_1)
-    testChannels = JpgTif(attributes_test, image_test)
-    channels = testChannels.channels()
-    assert channels == 3
+    testChannels_1 = JpgTif(attributes_test_1, image_test_1)
+    channels_1 = testChannels_1.channels()
 
-def test_channels():
-    image_test = imageio.imread(testpath_2)
-    attributes_test = Image.open(testpath_2)
-    testChannels = JpgTif(attributes_test, image_test)
-    channels = testChannels.channels()
-    assert channels == 3
+    assert channels_1 == 3
 
 def test_depth_per_pixel():
-    image_test = imageio.imread(testpath_1)
-    attributes_test = Image.open(testpath_1)
-    testDepthPerPixel = JpgTif(attributes_test, image_test)
-    depthPerPixel = testDepthPerPixel.depth_per_pixel()
-    assert depthPerPixel == 24
-
-def test_depth_per_pixel():
-    image_test = imageio.imread(testpath_2)
-    attributes_test = Image.open(testpath_2)
-    testDepthPerPixel = JpgTif(attributes_test, image_test)
-    depthPerPixel = testDepthPerPixel.depth_per_pixel()
-    assert depthPerPixel == 24
+    testDepthPerPixel_1 = JpgTif(attributes_test_1, image_test_1)
+    depthPerPixel_1 = testDepthPerPixel_1.depth_per_pixel()
+    
+    assert depthPerPixel_1 == 24
 
 def test_colour_mode():
-    image_test = imageio.imread(testpath_1)
-    attributes_test = Image.open(testpath_1)
-    testColourMode = JpgTif(attributes_test, image_test)
-    colourMode = testColourMode.colour_mode()
-    assert colourMode == "RGB"
-
-def test_colour_mode():
-    image_test = imageio.imread(testpath_2)
-    attributes_test = Image.open(testpath_2)
-    testColourMode = JpgTif(attributes_test, image_test)
-    colourMode = testColourMode.colour_mode()
-    assert colourMode == "RGB"
+    testColourMode_1 = JpgTif(attributes_test_1, image_test_1)
+    colourMode_1 = testColourMode_1.colour_mode()
+    
+    assert colourMode_1 == "RGB"
