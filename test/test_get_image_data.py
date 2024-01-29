@@ -4,7 +4,7 @@ import imageio.v2 as imageio
 from PIL import Image
 
 testpath_1 = './testfile_jpg.jpg'
-testpath_2 = './test_cat.jpg'
+testpath_2 = './test/test_cat.jpg'
 
 def test_width():
     image_test = imageio.imread(testpath_1)
