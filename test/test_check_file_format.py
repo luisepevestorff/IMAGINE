@@ -2,23 +2,16 @@ from IMAGINE.check_file_format import FileFormat
 import pytest
 
 def test_file_format():
-    testformat = FileFormat('./testfile_jpg.jpg')
-    extension = testformat.file_format()
-    assert extension == '.jpg'
-
-def test_file_format():
-    testformat = FileFormat('./testfile_tif.tif')
-    extension = testformat.file_format()
-    assert extension == '.tif'
-
-def test_file_format():
+    testformat_1 = FileFormat('./testfile_jpg.jpg')
+    extension_1 = testformat_1.file_format()
+    
+    testformat_2 = FileFormat('./testfile_tif.tif')
+    extension_2 = testformat_2.file_format()
+    
+    assert extension_1 == '.jpg'
+    assert extension_2 == '.tif'
+    
     with pytest.raises(ValueError) as wrongformat:
-        testformat = FileFormat('./testfile_png.png')
-        extension = testformat.file_format()
+        testformat_3 = FileFormat('./testfile_png.png')
+        extension_3 = testformat_3.file_format()
     assert str(wrongformat.value) == "Hello World, this file format is not yet supported (we're working on that). Please choose a JPG or TIF file."
-
-def test_file_format():
-    with pytest.raises(ValueError) as wrongformat:
-        testformat = FileFormat('./__init__.py')
-        extension = testformat.file_format()
-    assert str(wrongformat.value) == "Hello World, this file format is not (yet) supported (we're working on that). Please choose a JPG or TIF file."
