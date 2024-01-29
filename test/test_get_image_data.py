@@ -3,7 +3,7 @@ from IMAGINE.get_image_data import JpgTif
 import imageio.v2 as imageio
 from PIL import Image
 
-testpath_1 = './testfile_jpg.jpg'
+testpath_1 = './test/testfile_jpg.jpg'
 testpath_2 = './test/test_cat.jpg'
 
 def test_width():
