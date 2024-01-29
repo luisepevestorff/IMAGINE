@@ -4,10 +4,7 @@ on:
     branches:
       - 'main'
       - 'code'
-  pull:
-    branches:
-    - 'main'
-    - 'code'
+      
 jobs:
   run:
     strategy:
