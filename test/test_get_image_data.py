@@ -42,3 +42,30 @@ def test_aspectRatioRounded():
     ratioRounded = testRatioRounded.aspectRatioRounded()
     assert ratioRounded == (1, 1)
 
+def test_depth():
+    image_test = imageio.imread(testpath_1)
+    attributes_test = Image.open(testpath_1)
+    testDepth = JpgTif(attributes_test, image_test)
+    depth = testDepth.depth()
+    assert depth == 8
+
+def test_channels():
+    image_test = imageio.imread(testpath_1)
+    attributes_test = Image.open(testpath_1)
+    testChannels = JpgTif(attributes_test, image_test)
+    channels = testChannels.channels()
+    assert channels == 3
+
+def test_depth_per_pixel():
+    image_test = imageio.imread(testpath_1)
+    attributes_test = Image.open(testpath_1)
+    testDepthPerPixel = JpgTif(attributes_test, image_test)
+    depthPerPixel = testDepthPerPixel.depth_per_pixel()
+    assert depthPerPixel == 24
+
+def test_colour_mode():
+    image_test = imageio.imread(testpath_1)
+    attributes_test = Image.open(testpath_1)
+    testColourMode = JpgTif(attributes_test, image_test)
+    colourMode = testColourMode.colour_mode()
+    assert colourMode == "RGB"
