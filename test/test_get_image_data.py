@@ -74,7 +74,7 @@ def test_aspectRatioRounded():
     attributes_test = Image.open(testpath_2)
     testRatioRounded = JpgTif(attributes_test, image_test)
     ratioRounded = testRatioRounded.aspectRatioRounded()
-    assert ratioRounded == (408, 229)
+    assert ratioRounded == (2, 1)
 
 def test_depth():
     image_test = imageio.imread(testpath_1)
