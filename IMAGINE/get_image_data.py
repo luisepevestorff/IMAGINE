@@ -109,7 +109,7 @@ class JpgTif:
             resultA = 1
             resultB = 1
         else:
-            for i in range(1,100):
+            for i in range(1,1000000):
                 r = i*ratio
                 if r.is_integer():
                     resultA = i
@@ -135,7 +135,7 @@ class JpgTif:
             resultA = 1
             resultB = 1
         else:
-            for i in range(1,100):
+            for i in range(1,1000000):
                 r = round(i*ratio)
                 if r.is_integer():
                     resultA = i
