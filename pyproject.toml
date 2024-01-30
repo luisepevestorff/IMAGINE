@@ -1,9 +1,9 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "IMAGINE"
+name = "IMAGINE-the-image-search"
 version = "1.0.0"
 authors = [
   { name="Luise Pevestorff", email="luisepevestorff@hotmail.de" },
@@ -12,7 +12,7 @@ description = "A package to search for specific image information embedded in th
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-  "imageio >=2.33.1", "pillow >=10.2.0.",
+  "imageio>=2.33.1", "pillow>=10.2.0",
 ]
 
 [project.urls]
@@ -20,5 +20,5 @@ Homepage = "https://github.com/luisepevestorff/IMAGINE"
 Documentation = "https://imagine-imagesearch.readthedocs.io/en/latest/"
 
 [tool.setuptools]
-packages = ["content", "layout", "script", "docs", "test", "IMAGINE"]
+packages = ["test", "IMAGINE"]
 
