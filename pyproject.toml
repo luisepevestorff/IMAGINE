@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -18,3 +18,7 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/luisepevestorff/IMAGINE"
 Documentation = "https://imagine-imagesearch.readthedocs.io/en/latest/"
+
+[tool.setuptools]
+packages = ["content", "layout", "script", "docs", "test", "IMAGINE"]
+
