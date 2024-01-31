@@ -7,4 +7,6 @@ The current version "IMAGINE_SingleEdition" takes an image as an input and will 
 The full documentation can be found here: https://imagine-imagesearch.readthedocs.io/en/latest/
 
 ## Installation
+```
 pip install IMAGINE-image-search
+```
